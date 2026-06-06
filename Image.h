@@ -35,6 +35,8 @@ public:
     virtual size_t getHeight() const = 0;
     virtual size_t getSize() const = 0;
 
+    virtual std::unique_ptr<Image> clone() const = 0;
+
     virtual ~Image() = default;
 };
 
