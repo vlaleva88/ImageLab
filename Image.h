@@ -5,12 +5,12 @@
 #include <vector>
 
 struct RGB {
-    unsigned char red;
-    unsigned char green;
-    unsigned char blue;
+    unsigned short red;
+    unsigned short green;
+    unsigned short blue;
 
-    RGB(unsigned char red, unsigned char green,
-        unsigned char blue) : red(red), green(green), blue(blue) {
+    RGB(unsigned short red, unsigned short green,
+        unsigned short blue) : red(red), green(green), blue(blue) {
     }
 };
 
@@ -26,7 +26,8 @@ class Image {
 protected:
     size_t width;
     size_t height;
-    uint16_t maxVal = 255;
+    unsigned short maxVal = 255;
+    ImageType type;
 
 public:
     Image(size_t width, size_t height);
