@@ -5,12 +5,10 @@
 
 
 class PPMImage : public Image {
-    static constexpr int MAX_VAL_PPM = 256;
-
     std::vector<RGB> pixels;
 
 public:
-    PPMImage(size_t width, size_t heigh);
+    PPMImage(const std::string &filename);
 
     size_t getWidth() const override;
     size_t getHeight() const override;
@@ -18,7 +16,6 @@ public:
 
     std::unique_ptr<Image> clone() const override;
 
-    // void readPixels(const std::string& filename);
 };
 
 

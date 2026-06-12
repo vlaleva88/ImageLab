@@ -26,11 +26,12 @@ class Image {
 protected:
     size_t width;
     size_t height;
-    unsigned short maxVal = 255;
-    ImageType type;
+    unsigned short maxVal;
+
+    static void readHeader(std::ifstream &is);
 
 public:
-    Image(size_t width, size_t height);
+    Image(const std::string& filename);
 
     virtual size_t getWidth() const = 0;
     virtual size_t getHeight() const = 0;

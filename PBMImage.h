@@ -8,7 +8,9 @@ class PBMImage : public Image {
     std::vector<bool> pixels;
 
 public:
-    PBMImage(size_t width, size_t height);
+    // PBMImage() = default;
+    // PBMImage(size_t width, size_t height);
+    PBMImage (const std::string& filename);
 
     size_t getWidth() const override;
     size_t getHeight() const override;

@@ -5,18 +5,21 @@
 
 
 class PGMImage : public Image {
-    static constexpr int MAX_VAL_PGM = 255;
+    // static constexpr int MAX_VAL_PGM = 255;
 
-    std::vector<short int> pixels;
+    std::vector<unsigned char> pixels;
 
 public:
-    PGMImage(size_t width, size_t height);
+    // PGMImage() = default;
+    // PGMImage(size_t width, size_t height);
+    PGMImage(const std::string& filename);
 
     size_t getWidth() const override;
     size_t getHeight() const override;
     size_t getSize() const override;
 
     std::unique_ptr<Image> clone() const override;
+
 };
 
 

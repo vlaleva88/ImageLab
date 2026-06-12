@@ -1,7 +1,23 @@
 #include "PBMImage.h"
 
-PBMImage::PBMImage(size_t width, size_t height) : Image(width, height) {
+#include <fstream>
+
+PBMImage::PBMImage(const std::string& filename) : Image(filename) {
+    std::ifstream is(filename, std::ios::binary);
+    if (!is.is_open()) {
+        throw std::runtime_error("Could not open file " + filename);
+    }
+    readHeader(is);
+
     pixels.resize(width * height);
+    is.read(,
+        pixels.size());
+
+    if (!is) {
+        throw std::runtime_error("Could not read file " + filename);
+    }
+
+    is.close();
 }
 
 size_t PBMImage::getWidth() const {
