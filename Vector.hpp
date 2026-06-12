@@ -34,6 +34,11 @@ public:
 
     void pushBack(const T& obj);
     void pushBack(T&& obj);
+
+    T& back();
+    const T& back() const;
+    void popBack();
+    // void emplaceBack
 };
 
 template<typename T>
@@ -169,6 +174,29 @@ void Vector<T>::pushBack(T &&obj) {
     data[currentSize++] = std::move(obj);
 }
 
+template<typename T>
+T & Vector<T>::back() {
+    if (currentSize == 0) {
+        throw std::out_of_range("back is out of range");
+    }
+    return data[currentSize - 1];
+}
+
+template<typename T>
+const T & Vector<T>::back() const {
+    if (currentSize == 0) {
+        throw std::out_of_range("no elements in vector");
+    }
+    return data[currentSize - 1];
+}
+
+template<typename T>
+void Vector<T>::popBack() {
+    if (currentSize > 0) {
+        data[currentSize - 1].~T(); //
+        --currentSize;
+    }
+}
 
 
 template <>
