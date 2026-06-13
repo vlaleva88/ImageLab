@@ -18,6 +18,8 @@ public:
     Vector();
     explicit Vector(size_t capacity);
 
+    void reserve(size_t newCapacity);
+
     Vector(const Vector& other);
     Vector& operator=(const Vector& other);
     Vector(Vector&& other) noexcept;
@@ -90,6 +92,20 @@ Vector<T>::Vector() : Vector(DEFAULT_CAPACITY) {
 template<typename T>
 Vector<T>::Vector(size_t capacity) : currentCapacity(capacity) {
     data = new T[currentCapacity];
+}
+
+template<typename T>
+void Vector<T>::reserve(size_t newCapacity) {
+    if (newCapacity <= currentCapacity) {
+        return;
+    }
+    T* newData = new T[newCapacity];
+    for (size_t i = 0; i < currentSize; i++) {
+        newData[i] = std::move(data[i]);
+    }
+    delete[] data;
+    data = newData;
+    currentCapacity = newCapacity;
 }
 
 template<typename T>
