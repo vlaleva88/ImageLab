@@ -29,6 +29,9 @@ public:
     bool empty() const;
     void clear();
 
+    T* getData();
+    const T* getData() const;
+
     T& operator[](size_t index);
     const T& operator[](size_t index) const;
 
@@ -143,6 +146,16 @@ void Vector<T>::clear() {
 }
 
 template<typename T>
+T * Vector<T>::getData() {
+    return data;
+}
+
+template<typename T>
+const T * Vector<T>::getData() const {
+    return data;
+}
+
+template<typename T>
 T & Vector<T>::operator[](size_t index) {
     if (index >= currentSize) {
         throw std::out_of_range("index is out of range");
@@ -193,7 +206,7 @@ const T & Vector<T>::back() const {
 template<typename T>
 void Vector<T>::popBack() {
     if (currentSize > 0) {
-        data[currentSize - 1].~T(); //
+        data[currentSize - 1];
         --currentSize;
     }
 }
@@ -211,6 +224,8 @@ public:
     Vector& operator=(Vector&& other) noexcept;
     ~Vector();
 
+    bool operator[](size_t index) const;
+
     size_t size() const;
     size_t capacity() const;
     bool empty() const;
@@ -220,6 +235,8 @@ public:
     void set(size_t index, bool value);
 
     void pushBack(bool value);
+
+    void resize(size_t newCapacity);
 
 private:
     uint8_t* bytes = nullptr;
@@ -232,7 +249,6 @@ private:
     static size_t getByteIndex(size_t index);
     static uint8_t getMask(size_t index);
 
-    void resize(size_t newCapacity);
     void free();
     void copyFrom(const Vector& other);
     void moveFrom(Vector&& other) noexcept;
@@ -334,6 +350,13 @@ inline Vector<bool>& Vector<bool>::operator=(Vector&& other) noexcept {
 
 inline Vector<bool>::~Vector() {
     free();
+}
+
+inline bool Vector<bool>::operator[](size_t index) const {
+    if (index >= currentSize) {
+        throw std::out_of_range("index is out of range");
+    }
+    return get(index);
 }
 
 inline size_t Vector<bool>::size() const {
