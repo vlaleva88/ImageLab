@@ -9,7 +9,6 @@ class Vector {
 
     static constexpr size_t DEFAULT_CAPACITY = 16;
 
-    void resize(size_t newCapacity);
     void free();
     void copyFrom(const Vector& other);
     void moveFrom(Vector&& other) noexcept;
@@ -18,6 +17,7 @@ public:
     Vector();
     explicit Vector(size_t capacity);
 
+    void resize(size_t newCapacity);
     void reserve(size_t newCapacity);
 
     Vector(const Vector& other);

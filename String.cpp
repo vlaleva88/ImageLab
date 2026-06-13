@@ -167,6 +167,14 @@ String operator+(const String& lhs, const String& rhs)
     return result;
 }
 
+std::istream& getline(std::istream& is, String& str) {
+    std::string temp;
+    std::getline(is, temp);
+
+    str = temp.c_str();
+    return is;
+}
+
 std::ostream& operator<<(std::ostream& os, const String& str)
 {
     os << str.c_str();

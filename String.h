@@ -43,6 +43,7 @@ private:
     size_t currentSize = 0;
     size_t allocatedDataCapacity = 0;
 };
+std::istream& getline(std::istream& is, String& str);
 std::ostream& operator<<(std::ostream& os, const String& str);
 
 bool operator==(const String& lhs, const String& rhs);
