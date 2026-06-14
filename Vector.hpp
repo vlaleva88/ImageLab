@@ -43,6 +43,8 @@ public:
     T& back();
     const T& back() const;
     void popBack();
+
+    void remove(size_t index);
     // void emplaceBack
 };
 
@@ -225,6 +227,19 @@ void Vector<T>::popBack() {
         data[currentSize - 1];
         --currentSize;
     }
+}
+
+template<typename T>
+void Vector<T>::remove(size_t index) {
+    if (index >= currentSize)
+        throw std::out_of_range("Invalid index");
+
+    for (size_t i = index; i < currentSize - 1; i++)
+    {
+        data[i] = std::move(data[i + 1]);
+    }
+
+    --currentSize;
 }
 
 

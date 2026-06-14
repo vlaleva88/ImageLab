@@ -55,6 +55,39 @@ void PBMImage::setPixel(size_t index, bool value) {
     pixels.set(index, value);
 }
 
+void PBMImage::save(std::ostream &os) const {
+    os << "P4\n";
+    os << width << " " << height << "\n";
+
+    for (size_t row = 0; row < height; ++row)
+    {
+        unsigned char byte = 0;
+        int bitCount = 0;
+
+        for (size_t col = 0; col < width; ++col)
+        {
+            bool pixel = getPixel(row * width + col);
+            byte <<= 1;
+            if (pixel) {
+                byte |= 1;
+            }
+            ++bitCount;
+
+            if (bitCount == 8)
+            {
+                os.write(reinterpret_cast<const char*>(&byte), 1);
+                byte = 0;
+                bitCount = 0;
+            }
+        }
+        if (bitCount > 0)
+        {
+            byte <<= (8 - bitCount);
+            os.write(reinterpret_cast<const char*>(&byte), 1);
+        }
+    }
+}
+
 std::unique_ptr<Image> PBMImage::clone() const {
     return std::make_unique<PBMImage>(*this);
 }

@@ -23,6 +23,8 @@ public:
     size_t getSize() const override;
     unsigned short getMaxVal() const;
 
+    void save(std::ostream& os) const override;
+
     std::unique_ptr<Image> clone() const override;
 };
 

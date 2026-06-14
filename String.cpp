@@ -116,6 +116,10 @@ const char* String::c_str() const
     return data ? data : "";
 }
 
+bool String::isEmpty() const {
+    return currentSize == 0;
+}
+
 bool String::endsWith(const String &other) const {
     if (other.length() > length()) {
         return false;
@@ -128,8 +132,35 @@ bool String::endsWith(const String &other) const {
         }
     }
     return true;
-    // banana.joe - 10
 }
+
+size_t String::findLastOf(const char symbol) const {
+    for (size_t i = currentSize - 1; i >= 0; i--) {
+        if (data[i] == symbol) {
+            return i;
+        }
+    }
+    return 0;
+}
+
+String String::substr(size_t start, size_t count) const {
+    if (start >= currentSize) {
+        throw std::out_of_range("invalid substr");
+    }
+    if (start + count > currentSize) {
+        count = currentSize - start;
+    }
+    String result;
+    result.currentSize = count;
+    result.data = new char[count + 1];
+
+    for (size_t i = 0; i < count; i++) {
+        result.data[i] = data[start + i];
+    }
+    result.data[count] = '\0';
+    return result;
+}
+
 
 String& String::operator+=(const String& other)
 {

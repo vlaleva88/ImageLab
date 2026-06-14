@@ -55,6 +55,36 @@ unsigned short PGMImage::getMaxVal() const {
     return maxVal;
 }
 
+void PGMImage::save(std::ostream &os) const {
+    os << "P5\n";
+    os << width << " " << height << "\n";
+    os << maxVal << "\n";
+
+    if (maxVal <= 255) {
+        for (size_t i = 0; i < pixels.size(); i++) {
+            if (pixels[i] > maxVal) {
+                throw std::runtime_error("Pixel value exceeds maxVal");
+            }
+
+            unsigned char byte = static_cast<unsigned char>(pixels[i]);
+            os.write(reinterpret_cast<const char*>(&byte), 1);
+        }
+    } else {
+        for (size_t i = 0; i < pixels.size(); i++) {
+            if (pixels[i] > maxVal) {
+                throw std::runtime_error("Pixel value exceeds maxVal");
+            }
+
+            unsigned char bytes[2] = {
+                static_cast<unsigned char>(pixels[i] >> 8),
+                static_cast<unsigned char>(pixels[i] & 0xFF)
+            };
+
+            os.write(reinterpret_cast<const char*>(bytes), 2);
+        }
+    }
+}
+
 std::unique_ptr<Image> PGMImage::clone() const {
     return std::make_unique<PGMImage>(*this);
 }

@@ -27,6 +27,8 @@ public:
     unsigned char getGreen(size_t index);
     unsigned char getBlue(size_t index);
 
+    void save(std::ostream& os) const override;
+
     std::unique_ptr<Image> clone() const override;
 
 };

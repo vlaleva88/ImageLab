@@ -67,6 +67,18 @@ unsigned char PPMImage::getBlue(size_t index) {
     return pixels[index].blue;
 }
 
+void PPMImage::save(std::ostream &os) const {
+    os << "P6\n";
+    os << width << " " << height << "\n";
+    os << maxVal << "\n";
+
+    for (size_t i = 0; i < pixels.size(); i++) {
+        os.write(reinterpret_cast<const char*>(&pixels[i].red), 1);
+        os.write(reinterpret_cast<const char*>(&pixels[i].green), 1);
+        os.write(reinterpret_cast<const char*>(&pixels[i].blue), 1);
+    }
+}
+
 std::unique_ptr<Image> PPMImage::clone() const {
     return std::make_unique<PPMImage>(*this);
 }

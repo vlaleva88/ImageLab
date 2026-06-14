@@ -20,8 +20,11 @@ public:
 
     size_t length() const;
     const char* c_str() const;
+    bool isEmpty() const;
 
     bool endsWith(const String& other) const;
+    size_t findLastOf(const char symbol) const;
+    String substr(size_t start, size_t count) const;
 
     String& operator+=(const String & other);
 

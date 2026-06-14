@@ -20,6 +20,8 @@ public:
     bool getPixel(size_t index) const;
     void setPixel(size_t index, bool value);
 
+    void save(std::ostream& os) const override;
+
     std::unique_ptr<Image> clone() const override;
 };
 

@@ -41,7 +41,8 @@ public:
     virtual size_t getWidth() const = 0;
     virtual size_t getHeight() const = 0;
     virtual size_t getSize() const = 0;
-    // virtual unsigned short getMaxVal() const = 0;
+
+    virtual void save(std::ostream& os) const = 0;
 
     virtual std::unique_ptr<Image> clone() const = 0;
 
