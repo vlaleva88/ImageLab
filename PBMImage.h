@@ -2,19 +2,23 @@
 #define IMAGELAB_PBMIMAGE_H
 
 #include "Image.h"
+#include "Vector.hpp"
 
 
 class PBMImage : public Image {
-    std::vector<bool> pixels;
+    Vector<bool> pixels;
 
 public:
-    // PBMImage() = default;
-    // PBMImage(size_t width, size_t height);
-    PBMImage (const std::string& filename);
+    explicit PBMImage (const String& filename);
+
+    void accept(ImageVisitor& visitor) override;
 
     size_t getWidth() const override;
     size_t getHeight() const override;
     size_t getSize() const override;
+
+    bool getPixel(size_t index) const;
+    void setPixel(size_t index, bool value);
 
     std::unique_ptr<Image> clone() const override;
 };

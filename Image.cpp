@@ -3,29 +3,27 @@
 #include <fstream>
 
 void Image::readHeader(std::ifstream &is) {
-    std::string header, values, line;
+    String header, values, line;
     getline(is, header);
     getline(is, values);
-    getline(is, line);
+    // getline(is, line);
 }
 
-Image::Image(const std::string &filename) {
-    std::ifstream is(filename, std::ios::binary);
+Image::Image(const String &filename) {
+    std::ifstream is(filename.c_str(), std::ios::binary);
     if (!is.is_open()) {
-        throw std::runtime_error("Could not open file " + filename);
+        throw std::runtime_error(("Could not open file " + filename).c_str());
     }
-    std::string header;
-    std::getline(is, header);
+    String header;
+    getline(is, header);
 
     size_t readWidth, readHeight;
-    unsigned short readMaxVal;
-    if (!(is >> readWidth >> readHeight >> readMaxVal)) {
+    if (!(is >> readWidth >> readHeight)) {
         throw std::runtime_error("Invalid file arguments");
     }
 
     width = readWidth;
     height = readHeight;
-    maxVal = readMaxVal;
 
     is.close();
 }

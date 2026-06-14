@@ -2,12 +2,15 @@
 
 #include <fstream>
 
-PPMImage::PPMImage(const std::string &filename) : Image(filename) {
-    std::ifstream is(filename, std::ios::binary);
+PPMImage::PPMImage(const String &filename) : Image(filename) {
+    std::ifstream is(filename.c_str(), std::ios::binary);
     if (!is.is_open()) {
-        throw std::runtime_error("Could not open file " + filename);
+        throw std::runtime_error(("Could not open file " + filename).c_str());
     }
     readHeader(is);
+    unsigned short readMaxVal;
+    is >> readMaxVal;
+    maxVal = readMaxVal;
 
     const size_t size = width * height;
     pixels.reserve(size);
@@ -16,9 +19,12 @@ PPMImage::PPMImage(const std::string &filename) : Image(filename) {
         is.read(reinterpret_cast<char*>(&r), 1);
         is.read(reinterpret_cast<char*>(&g), 1);
         is.read(reinterpret_cast<char*>(&b), 1);
-        // pixels[i] = RGB(r,g,b);
-        pixels.emplace_back(r, g, b);
+        pixels.pushBack(RGB(r, g, b));
     }
+}
+
+void PPMImage::accept(ImageVisitor &visitor) {
+    visitor.visit(*this);
 }
 
 size_t PPMImage::getWidth() const {
@@ -31,6 +37,34 @@ size_t PPMImage::getHeight() const {
 
 size_t PPMImage::getSize() const {
     return width * height;
+}
+
+unsigned short PPMImage::getMaxVal() const {
+    return maxVal;
+}
+
+Vector<RGB>& PPMImage::getPixels() {
+    return pixels;
+}
+
+RGB PPMImage::getPixel(size_t index) const {
+    return pixels[index];
+}
+
+void PPMImage::setPixel(size_t index, const RGB &value) {
+    pixels[index] = value;
+}
+
+unsigned char PPMImage::getRed(size_t index) {
+    return pixels[index].red;
+}
+
+unsigned char PPMImage::getGreen(size_t index) {
+    return pixels[index].green;
+}
+
+unsigned char PPMImage::getBlue(size_t index) {
+    return pixels[index].blue;
 }
 
 std::unique_ptr<Image> PPMImage::clone() const {

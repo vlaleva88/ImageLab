@@ -4,11 +4,15 @@
 #include<iostream>
 #include <vector>
 
+#include "ImageVisitor.h"
+#include "String.h"
+
 struct RGB {
     unsigned short red;
     unsigned short green;
     unsigned short blue;
 
+    RGB() = default;
     RGB(unsigned short red, unsigned short green,
         unsigned short blue) : red(red), green(green), blue(blue) {
     }
@@ -26,16 +30,18 @@ class Image {
 protected:
     size_t width;
     size_t height;
-    unsigned short maxVal;
 
     static void readHeader(std::ifstream &is);
 
 public:
-    Image(const std::string& filename);
+    Image(const String& filename);
+
+    virtual void accept(ImageVisitor& visitor) = 0;
 
     virtual size_t getWidth() const = 0;
     virtual size_t getHeight() const = 0;
     virtual size_t getSize() const = 0;
+    // virtual unsigned short getMaxVal() const = 0;
 
     virtual std::unique_ptr<Image> clone() const = 0;
 

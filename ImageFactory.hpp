@@ -8,19 +8,19 @@
 class ImageFactory {
     static constexpr int MIN_FILE_LENGTH = 4;
 public:
-    static std::unique_ptr<Image> create(const std::string& filename) {
-        if (filename.size() <= MIN_FILE_LENGTH) {
+    static std::unique_ptr<Image> create(const String& filename) {
+        if (filename.length() <= MIN_FILE_LENGTH) {
             return nullptr;
         }
 
-        if (filename.ends_with(".pgm")) {
-            return std::make_unique<PGMImage> (filename);
+        if (filename.endsWith(".pgm")) {
+            return std::make_unique<PGMImage> (filename.c_str());
         }
-        if (filename.ends_with(".pbm")) {
-            return std::make_unique<PBMImage> (filename);
+        if (filename.endsWith(".pbm")) {
+            return std::make_unique<PBMImage> (filename.c_str());
         }
-        if (filename.ends_with(".ppm")) {
-            return std::make_unique<PPMImage> (filename);
+        if (filename.endsWith(".ppm")) {
+            return std::make_unique<PPMImage> (filename.c_str());
         }
 
         throw std::runtime_error("File does not exist");
