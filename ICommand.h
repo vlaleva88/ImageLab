@@ -5,7 +5,7 @@
 
 class ICommand {
 public:
-    virtual void execute(ImageManager& manager);
+    virtual void execute(ImageManager& manager) = 0;
     virtual ~ICommand() = default;
 };
 

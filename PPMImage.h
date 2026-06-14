@@ -12,7 +12,7 @@ class PPMImage : public Image {
 public:
     PPMImage(const String &filename);
 
-    virtual void accept(ImageVisitor& visitor);
+    void accept(ImageVisitor& visitor) override;
 
     size_t getWidth() const override;
     size_t getHeight() const override;

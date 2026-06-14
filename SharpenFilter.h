@@ -12,9 +12,9 @@ class SharpenFilter : public Filter {
     };
 
 public:
-    void visit(PGMImage &image);
-    void visit(PPMImage &image);
-    void visit(PBMImage &image);
+    void visit(PGMImage &image) override;
+    void visit(PPMImage &image) override;
+    void visit(PBMImage &image) override;
 
     String getName() const override;
 

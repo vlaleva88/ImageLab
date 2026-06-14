@@ -20,7 +20,7 @@ void NegativeFilter::visit(PBMImage &image) {
 }
 
 void NegativeFilter::visit(PGMImage &image) {
-    Vector<unsigned char> pixels = image.getPixels();
+    Vector<unsigned short> pixels = image.getPixels();
     for (size_t i = 0; i < image.getSize(); i++) {
         pixels[i] = image.getMaxVal() - pixels[i];
     }

@@ -1,5 +1,6 @@
 #pragma once
 #include <memory>
+#include <sstream>
 
 #include "AddFilterCommand.h"
 #include "FilterFactory.hpp"
@@ -36,9 +37,9 @@ public:
         }
         if (command == "remove-filter") {
             size_t imageIndex;
-            std::string filterName;
-            ss >> imageIndex >> filterName;
-            return std::make_unique<RemoveFilterCommand>(imageIndex,std::move(filterName));
+            size_t filterIndex;
+            ss >> imageIndex >> filterIndex;
+            return std::make_unique<RemoveFilterCommand>(imageIndex,std::move(filterIndex));
         }
         if (command == "show-filters") {
             size_t imageIndex;

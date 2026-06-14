@@ -2,11 +2,12 @@
 
 #include "FilterFactory.hpp"
 
-AddFilterCommand::AddFilterCommand(int imageIndex, const String &filter) : imageIndex(imageIndex),
-                                                                           filterName(filter) {
+AddFilterCommand::AddFilterCommand(int imageIndex, std::unique_ptr<Filter> filter) : imageIndex(imageIndex),
+                                                                           filter(std::move(filter)) {
 }
 
 void AddFilterCommand::execute(ImageManager &manager) {
-    auto filter = FilterFactory::create(filterName);
+    // auto filter = FilterFactory::create(filterName);
+    // manager.addFilter(imageIndex, std::move(filter));
     manager.addFilter(imageIndex, std::move(filter));
 }

@@ -1,18 +1,35 @@
 #include<iostream>
 
+#include "CommandFactory.hpp"
 #include "ImageFactory.hpp"
+#include "ImageManager.h"
 #include "PBMImage.h"
 #include "PGMImage.h"
 #include "PPMImage.h"
 
 int main() {
-    // try {
-    //     auto image = ImageFactory::create("test.pgm");
-    // }catch (const std::exception& e) {
-    //     std::cout << e.what() << std::endl;
-    // }
+    std::cout << "Welcome to ImageLab!\n";
 
-    String myString("banana.joe");
-    std::cout << myString.endsWith(".oe");
+    std::cout << "Available commands:\n";
+    std::cout << "* load\n";
+
+    ImageManager manager;
+    bool running = true;
+    std::string line;
+
+    while (running) {
+        std::cout << "> ";
+        std::getline(std::cin, line);
+
+        try {
+            std::unique_ptr<ICommand> command =
+                    CommandFactory::create(line, running);
+
+            command->execute(manager);
+        } catch (const std::exception &e) {
+            std::cout << "Error: " << e.what() << '\n';
+        }
+    }
+
     return 0;
 }
