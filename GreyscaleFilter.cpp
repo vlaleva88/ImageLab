@@ -24,7 +24,7 @@ void GreyscaleFilter::visit(PGMImage &image) {
 }
 
 String GreyscaleFilter::getName() const {
-    return "GreyscaleFilter";
+    return "'greyscale'";
 }
 
 std::unique_ptr<Filter> GreyscaleFilter::clone() const {

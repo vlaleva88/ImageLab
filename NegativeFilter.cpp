@@ -27,7 +27,7 @@ void NegativeFilter::visit(PGMImage &image) {
 }
 
 String NegativeFilter::getName() const {
-    return "Negative";
+    return "'negative'";
 }
 
 std::unique_ptr<Filter> NegativeFilter::clone() const {
