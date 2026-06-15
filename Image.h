@@ -31,7 +31,7 @@ protected:
     size_t width;
     size_t height;
 
-    static void readHeader(std::ifstream &is);
+    void readHeader(std::ifstream &is);
 
 public:
     Image(const String& filename);

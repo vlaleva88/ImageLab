@@ -4,13 +4,14 @@
 #include "ImageFactory.hpp"
 #include "ImageWriter.h"
 
-String ImageManager::generateOutputName(const String &filename,
+String ImageManager::
+generateOutputName(const String &filename,
                                         const Vector<std::unique_ptr<Filter>> &filters) {
     const String& result = filename;
     size_t pos = result.findLastOf('.');
 
     String name = result.substr(0, pos);
-    String extension = result.substr(pos, 0);
+    String extension = result.substr(pos, 4);
 
     for (size_t i = 0; i < filters.size(); i++) {
         name += "_" + filters[i]->getName();

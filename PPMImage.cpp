@@ -21,6 +21,7 @@ PPMImage::PPMImage(const String &filename) : Image(filename) {
         is.read(reinterpret_cast<char*>(&b), 1);
         pixels.pushBack(RGB(r, g, b));
     }
+    is.close();
 }
 
 void PPMImage::accept(ImageVisitor &visitor) {

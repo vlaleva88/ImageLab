@@ -7,11 +7,39 @@
 #include "PGMImage.h"
 #include "PPMImage.h"
 
-int main() {
-    std::cout << "Welcome to ImageLab!\n";
+void allCommands() {
+    std::cout << "* load <path>\n";
+    std::cout << "* add-filter <image> <filter>\n";
+    std::cout << "* remove-filter <image> <filter-index>\n";
+    std::cout << "* show-filters <image>\n";
+    std::cout << "* show-all-filters\n";
+    std::cout << "* run <image>\n";
+    std::cout << "* run-all\n";
+    std::cout << "* save <image> [output-name]\n";
+    std::cout << "* quit\n";
+}
 
+void allFilters() {
+    std::cout << "* greyscale\n";
+    std::cout << "* blur\n";
+    std::cout << "* sobel\n";
+    std::cout << "* threshold\n";
+    std::cout << "* negative\n";
+    std::cout << "* sharpen\n";
+}
+
+int main() {
+    std::cout << "Welcome to ImageLab!\n\n";
+
+    std::cout << "Introduction:\n";
     std::cout << "Available commands:\n";
-    std::cout << "* load\n";
+    allCommands();
+    std::cout << "================================\n";
+    std::cout << "Available filters:\n";
+    allFilters();
+
+    std::cout << "\n";
+    std::cout << "========= LET'S START =========\n";
 
     ImageManager manager;
     bool running = true;

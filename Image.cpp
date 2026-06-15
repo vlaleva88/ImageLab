@@ -12,7 +12,7 @@ void Image::readHeader(std::ifstream &is) {
 Image::Image(const String &filename) {
     std::ifstream is(filename.c_str(), std::ios::binary);
     if (!is.is_open()) {
-        throw std::runtime_error(("Could not open file " + filename).c_str());
+        throw std::runtime_error(("(from base class)Could not open file " + filename).c_str());
     }
     String header;
     getline(is, header);

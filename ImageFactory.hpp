@@ -14,13 +14,13 @@ public:
         }
 
         if (filename.endsWith(".pgm")) {
-            return std::make_unique<PGMImage> (filename.c_str());
+            return std::make_unique<PGMImage> (filename);
         }
         if (filename.endsWith(".pbm")) {
-            return std::make_unique<PBMImage> (filename.c_str());
+            return std::make_unique<PBMImage> (filename);
         }
         if (filename.endsWith(".ppm")) {
-            return std::make_unique<PPMImage> (filename.c_str());
+            return std::make_unique<PPMImage> (filename);
         }
 
         throw std::runtime_error("File does not exist");
