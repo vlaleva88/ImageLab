@@ -23,9 +23,9 @@ public:
     RGB getPixel(size_t index) const;
     void setPixel(size_t index, const RGB& value);
 
-    unsigned char getRed(size_t index);
-    unsigned char getGreen(size_t index);
-    unsigned char getBlue(size_t index);
+    unsigned short getRed(size_t index);
+    unsigned short getGreen(size_t index);
+    unsigned short getBlue(size_t index);
 
     void save(std::ostream& os) const override;
 

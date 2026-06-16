@@ -4,7 +4,7 @@
 #include "Vector.hpp"
 
 void GreyscaleFilter::visit(PPMImage &image) {
-    Vector<RGB> pixels = image.getPixels();
+    Vector<RGB>& pixels = image.getPixels();
     for (size_t i = 0; i < image.getSize(); i++) {
         unsigned char grey = 0.299 * image.getRed(i) + 0.587 * image.getGreen(i) +
             0.114 * image.getBlue(i);

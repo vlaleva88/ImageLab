@@ -63,6 +63,9 @@ void BlurFilter::visit(PGMImage &image) {
 void BlurFilter::visit(PPMImage &image) {
     PPMImage result = image;
 
+    // std::cout << &result.getPixels() << std::endl;
+    // std::cout << &image.getPixels();
+
     for (int y = 0; y < image.getHeight(); y++) {
         for (int x = 0; x < image.getWidth(); x++) {
 

@@ -11,11 +11,12 @@ PPMImage::PPMImage(const String &filename) : Image(filename) {
     unsigned short readMaxVal;
     is >> readMaxVal;
     maxVal = readMaxVal;
+    is.ignore(1);
 
     const size_t size = width * height;
     pixels.reserve(size);
     for (size_t i = 0; i < size; i++) {
-        unsigned char r, g, b;
+        unsigned short r, g, b;
         is.read(reinterpret_cast<char*>(&r), 1);
         is.read(reinterpret_cast<char*>(&g), 1);
         is.read(reinterpret_cast<char*>(&b), 1);
@@ -56,15 +57,15 @@ void PPMImage::setPixel(size_t index, const RGB &value) {
     pixels[index] = value;
 }
 
-unsigned char PPMImage::getRed(size_t index) {
+unsigned short PPMImage::getRed(size_t index) {
     return pixels[index].red;
 }
 
-unsigned char PPMImage::getGreen(size_t index) {
+unsigned short PPMImage::getGreen(size_t index) {
     return pixels[index].green;
 }
 
-unsigned char PPMImage::getBlue(size_t index) {
+unsigned short PPMImage::getBlue(size_t index) {
     return pixels[index].blue;
 }
 
