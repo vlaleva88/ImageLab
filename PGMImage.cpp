@@ -11,6 +11,7 @@ PGMImage::PGMImage(const String &filename) : Image(filename) {
     unsigned short readMaxVal;
     is >> readMaxVal;
     maxVal = readMaxVal;
+    is.ignore(1);
 
     pixels.resize(width * height);
     is.read(reinterpret_cast<char*>(pixels.getData()),

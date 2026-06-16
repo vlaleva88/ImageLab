@@ -55,7 +55,7 @@ void SharpenFilter::visit(PBMImage &image) {
 }
 
 String SharpenFilter::getName() const {
-    return "'shaped'";
+    return "'sharpen'";
 }
 
 std::unique_ptr<Filter> SharpenFilter::clone() const {

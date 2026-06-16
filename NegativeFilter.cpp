@@ -5,7 +5,7 @@
 #include "PPMImage.h"
 
 void NegativeFilter::visit(PPMImage &image) {
-    Vector<RGB> pixels = image.getPixels();
+    Vector<RGB>& pixels = image.getPixels();
     for (size_t i = 0; i < image.getSize(); i++) {
         pixels[i].red = image.getMaxVal() - pixels[i].red;
         pixels[i].green = image.getMaxVal() - pixels[i].green;
@@ -20,7 +20,7 @@ void NegativeFilter::visit(PBMImage &image) {
 }
 
 void NegativeFilter::visit(PGMImage &image) {
-    Vector<unsigned short> pixels = image.getPixels();
+    Vector<unsigned short>& pixels = image.getPixels();
     for (size_t i = 0; i < image.getSize(); i++) {
         pixels[i] = image.getMaxVal() - pixels[i];
     }
