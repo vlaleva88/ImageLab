@@ -1,8 +1,8 @@
-#include "BlurFilter.h"
+#include "../filters/BlurFilter.h"
 
-#include "PBMImage.h"
-#include "PGMImage.h"
-#include "PPMImage.h"
+#include "../Image Formats/PBMImage.h"
+#include "../Image Formats/PGMImage.h"
+#include "../Image Formats/PPMImage.h"
 
 void BlurFilter::visit(PBMImage &image) {
     PBMImage result = image;
