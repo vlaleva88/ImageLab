@@ -1,4 +1,4 @@
-#include "../filters/BlurFilter.h"
+#include "../Filters/BlurFilter.h"
 
 #include "../Image Formats/PBMImage.h"
 #include "../Image Formats/PGMImage.h"
