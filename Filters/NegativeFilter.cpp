@@ -1,8 +1,8 @@
-#include "NegativeFilter.h"
+#include "../Filters/NegativeFilter.h"
 
-#include "PBMImage.h"
-#include "PGMImage.h"
-#include "PPMImage.h"
+#include "../Image Formats/PBMImage.h"
+#include "../Image Formats/PGMImage.h"
+#include "../Image Formats/PPMImage.h"
 
 void NegativeFilter::visit(PPMImage &image) {
     Vector<RGB>& pixels = image.getPixels();
