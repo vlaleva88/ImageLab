@@ -1,7 +1,7 @@
 #ifndef IMAGELAB_FILTER_H
 #define IMAGELAB_FILTER_H
 
-#include "Image.h"
+#include "../Utils/Image.h"
 
 class Filter : public ImageVisitor {
 public:
