@@ -2,7 +2,7 @@
 #define IMAGELAB_BLURFILTER_H
 #include <memory>
 
-#include "Filter.h"
+#include "../filters/Filter.h"
 
 
 class BlurFilter : public Filter {
