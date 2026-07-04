@@ -1,7 +1,7 @@
 #include "GreyscaleFilter.h"
 
-#include "PPMImage.h"
-#include "Vector.hpp"
+#include "../Image Formats/PPMImage.h"
+#include "../Utils/Vector.hpp"
 
 void GreyscaleFilter::visit(PPMImage &image) {
     Vector<RGB>& pixels = image.getPixels();
