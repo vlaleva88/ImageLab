@@ -1,4 +1,4 @@
-#include "GreyscaleFilter.h"
+#include "../Filters/GreyscaleFilter.h"
 
 #include "../Image Formats/PPMImage.h"
 #include "../Utils/Vector.hpp"
