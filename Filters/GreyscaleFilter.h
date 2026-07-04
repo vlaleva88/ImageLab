@@ -1,7 +1,7 @@
 #ifndef IMAGELAB_GREYSCALEFILTER_H
 #define IMAGELAB_GREYSCALEFILTER_H
 
-#include "Filter.h"
+#include "../Filters/Filter.h"
 
 
 class GreyscaleFilter : public Filter {
