@@ -1,7 +1,7 @@
 #ifndef IMAGELAB_THRESHOLDFILTER_H
 #define IMAGELAB_THRESHOLDFILTER_H
 
-#include "Filter.h"
+#include "../Filters/Filter.h"
 
 
 class ThresholdFilter : public Filter {
