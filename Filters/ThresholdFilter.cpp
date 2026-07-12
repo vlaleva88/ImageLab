@@ -1,9 +1,9 @@
-#include "ThresholdFilter.h"
+#include "../Filters/ThresholdFilter.h"
 
-#include "NegativeFilter.h"
-#include "PBMImage.h"
-#include "PGMImage.h"
-#include "PPMImage.h"
+#include "../Filters/NegativeFilter.h"
+#include "../Image Formats/PBMImage.h"
+#include "../Image Formats/PGMImage.h"
+#include "../Image Formats/PPMImage.h"
 
 
 void ThresholdFilter::visit(PGMImage &image) {
