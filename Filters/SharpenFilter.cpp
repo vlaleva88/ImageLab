@@ -1,7 +1,7 @@
-#include "SharpenFilter.h"
+#include "../Filters/SharpenFilter.h"
 
-#include "PGMImage.h"
-#include "PPMImage.h"
+#include "../Image Formats/PGMImage.h"
+#include "../Image Formats/PPMImage.h"
 
 void SharpenFilter::visit(PGMImage &image) {
     PGMImage result = image;
