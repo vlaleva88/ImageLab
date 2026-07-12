@@ -1,7 +1,7 @@
 #ifndef IMAGELAB_SOBELFILTER_H
 #define IMAGELAB_SOBELFILTER_H
 
-#include "Filter.h"
+#include "../Filters/Filter.h"
 
 
 class SobelFilter : public Filter {
