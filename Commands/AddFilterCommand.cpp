@@ -1,4 +1,4 @@
-#include "AddFilterCommand.h"
+#include "../Commands/AddFilterCommand.h"
 
 #include "FilterFactory.hpp"
 
