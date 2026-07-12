@@ -1,7 +1,7 @@
 #ifndef IMAGELAB_SHARPENFILTER_H
 #define IMAGELAB_SHARPENFILTER_H
 
-#include "Filter.h"
+#include "../Filters/Filter.h"
 
 
 class SharpenFilter : public Filter {
