@@ -1,9 +1,9 @@
-#include "SobelFilter.h"
+#include "../Filters/SobelFilter.h"
 
-#include "GreyscaleFilter.h"
-#include "PBMImage.h"
-#include "PGMImage.h"
-#include "PPMImage.h"
+#include "../Filters/GreyscaleFilter.h"
+#include "../Image Formats/PBMImage.h"
+#include "../Image Formats/PGMImage.h"
+#include "../Image Formats/PPMImage.h"
 
 
 void SobelFilter::visit(PPMImage &image) {
