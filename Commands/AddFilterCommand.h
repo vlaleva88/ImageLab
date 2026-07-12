@@ -1,8 +1,8 @@
 #ifndef IMAGELAB_ADDFILTERCOMMAND_H
 #define IMAGELAB_ADDFILTERCOMMAND_H
 
-#include "ICommand.h"
-#include "Filter.h"
+#include "../Commands/ICommand.h"
+#include "../Filters/Filter.h"
 
 
 class AddFilterCommand : public ICommand {
