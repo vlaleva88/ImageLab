@@ -1,7 +1,7 @@
 #ifndef IMAGELAB_SHOWALLFILTERSCOMMAND_H
 #define IMAGELAB_SHOWALLFILTERSCOMMAND_H
 
-#include "ICommand.h"
+#include "../Commands/ICommand.h"
 
 
 class ShowAllFiltersCommand : public ICommand {
