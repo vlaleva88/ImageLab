@@ -1,4 +1,4 @@
-#include "RunCommand.h"
+#include "../Commands/RunCommand.h"
 
 RunCommand::RunCommand(size_t imageIndex) : imageIndex(imageIndex) {
 }
