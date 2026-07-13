@@ -1,6 +1,6 @@
 #include "ImageManager.h"
 
-#include "../Utils/Filter.h"
+#include "../Filters/Filter.h"
 #include "ImageFactory.hpp"
 #include "ImageWriter.h"
 
