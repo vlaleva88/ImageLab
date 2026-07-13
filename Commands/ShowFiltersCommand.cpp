@@ -1,4 +1,4 @@
-#include "ShowFiltersCommand.h"
+#include "../Commands/ShowFiltersCommand.h"
 
 ShowFiltersCommand::ShowFiltersCommand(size_t image) : imageIndex(image) {
 }
