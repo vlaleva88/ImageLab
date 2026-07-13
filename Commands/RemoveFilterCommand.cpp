@@ -1,4 +1,4 @@
-#include "RemoveFilterCommand.h"
+#include "../Commands/RemoveFilterCommand.h"
 
 RemoveFilterCommand::RemoveFilterCommand(size_t imageIndex, size_t filterIndex)
 : imageIndex(imageIndex), filterIndex(filterIndex) {
