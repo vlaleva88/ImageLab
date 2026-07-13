@@ -1,14 +1,14 @@
 #pragma once
 #include <memory>
 
-#include "BlurFilter.h"
-#include "Filter.h"
-#include "GreyscaleFilter.h"
-#include "NegativeFilter.h"
-#include "SharpenFilter.h"
-#include "SobelFilter.h"
-#include "String.h"
-#include "ThresholdFilter.h"
+#include "../Filters/BlurFilter.h"
+#include "../Filters/Filter.h"
+#include "../Filters/GreyscaleFilter.h"
+#include "../Filters/NegativeFilter.h"
+#include "../Filters/SharpenFilter.h"
+#include "../Filters/SobelFilter.h"
+#include "../Utils/String.h"
+#include "../Filters/ThresholdFilter.h"
 
 class FilterFactory {
 public:
