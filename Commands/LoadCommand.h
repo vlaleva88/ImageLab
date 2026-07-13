@@ -1,7 +1,7 @@
 #ifndef IMAGELAB_LOADCOMMAND_H
 #define IMAGELAB_LOADCOMMAND_H
 
-#include "ICommand.h"
+#include "../Commands/ICommand.h"
 #include "ImageManager.h"
 
 
