@@ -5,7 +5,7 @@
 #include <vector>
 
 #include "ImageVisitor.h"
-#include "String.h"
+#include "../Utils/String.h"
 
 struct RGB {
     unsigned short red;
