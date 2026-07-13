@@ -1,7 +1,7 @@
 #ifndef IMAGELAB_SAVECOMMAND_H
 #define IMAGELAB_SAVECOMMAND_H
 
-#include "ICommand.h"
+#include "../Commands/ICommand.h"
 
 
 class SaveCommand : public ICommand {
