@@ -1,7 +1,7 @@
 #ifndef IMAGELAB_RUNALLCOMMAND_H
 #define IMAGELAB_RUNALLCOMMAND_H
 
-#include "ICommand.h"
+#include "../Commands/ICommand.h"
 
 
 class RunAllCommand : public ICommand {
