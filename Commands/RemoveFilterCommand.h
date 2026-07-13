@@ -1,7 +1,7 @@
 #ifndef IMAGELAB_REMOVEFILTERCOMMAND_H
 #define IMAGELAB_REMOVEFILTERCOMMAND_H
 
-#include "ICommand.h"
+#include "../Commands/ICommand.h"
 
 
 class RemoveFilterCommand : public ICommand {
