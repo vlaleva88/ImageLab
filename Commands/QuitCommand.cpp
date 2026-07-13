@@ -1,4 +1,4 @@
-#include "QuitCommand.h"
+#include "../Commands/QuitCommand.h"
 
 QuitCommand::QuitCommand(bool &running) : running(running) {
 }
