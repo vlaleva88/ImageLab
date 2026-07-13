@@ -1,4 +1,4 @@
-#include "RunAllCommand.h"
+#include "../Commands/RunAllCommand.h"
 
 void RunAllCommand::execute(ImageManager &manager) {
     manager.runAll();
