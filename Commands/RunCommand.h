@@ -1,7 +1,7 @@
 #ifndef IMAGELAB_RUNCOMMAND_H
 #define IMAGELAB_RUNCOMMAND_H
 
-#include "ICommand.h"
+#include "../Commands/ICommand.h"
 
 
 class RunCommand : public ICommand {
