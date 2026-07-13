@@ -1,9 +1,9 @@
 #pragma once
 
 #include "Image.h"
-#include "PPMImage.h"
-#include "PGMImage.h"
-#include "PBMImage.h"
+#include "../Image Formats/PPMImage.h"
+#include "../Image Formats/PGMImage.h"
+#include "../Image Formats/PBMImage.h"
 
 class ImageFactory {
     static constexpr int MIN_FILE_LENGTH = 4;
