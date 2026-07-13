@@ -3,9 +3,9 @@
 #include "CommandFactory.hpp"
 #include "ImageFactory.hpp"
 #include "ImageManager.h"
-#include "PBMImage.h"
-#include "PGMImage.h"
-#include "PPMImage.h"
+#include "../Image Formats/PBMImage.h"
+#include "../Image Formats/PGMImage.h"
+#include "../Image Formats/PPMImage.h"
 
 void allCommands() {
     std::cout << "* load <path>\n";
