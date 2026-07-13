@@ -3,7 +3,7 @@
 #include <memory>
 
 #include "Image.h"
-#include "Vector.hpp"
+#include "../Utils/Vector.hpp"
 
 
 class Filter;
