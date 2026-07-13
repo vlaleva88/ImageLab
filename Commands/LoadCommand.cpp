@@ -1,4 +1,4 @@
-#include "LoadCommand.h"
+#include "../Commands/LoadCommand.h"
 
 LoadCommand::LoadCommand(const String &filename) : filename(filename) {
 }
