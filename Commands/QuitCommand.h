@@ -1,7 +1,7 @@
 #ifndef IMAGELAB_QUITCOMMAND_H
 #define IMAGELAB_QUITCOMMAND_H
 
-#include "ICommand.h"
+#include "../Commands/ICommand.h"
 #include "ImageManager.h"
 
 
