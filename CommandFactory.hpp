@@ -2,18 +2,18 @@
 #include <memory>
 #include <sstream>
 
-#include "AddFilterCommand.h"
+#include "../Commands/AddFilterCommand.h"
 #include "FilterFactory.hpp"
-#include "ICommand.h"
+#include "../Commands/ICommand.h"
 #include "ImageManager.h"
-#include "LoadCommand.h"
-#include "QuitCommand.h"
-#include "RemoveFilterCommand.h"
-#include "RunAllCommand.h"
-#include "RunCommand.h"
-#include "SaveCommand.h"
-#include "ShowAllFiltersCommand.h"
-#include "ShowFiltersCommand.h"
+#include "../Commands/LoadCommand.h"
+#include "../Commands/QuitCommand.h"
+#include "../Commands/RemoveFilterCommand.h"
+#include "../Commands/RunAllCommand.h"
+#include "../Commands/RunCommand.h"
+#include "../Commands/SaveCommand.h"
+#include "../Commands/ShowAllFiltersCommand.h"
+#include "../Commands/ShowFiltersCommand.h"
 
 class CommandFactory {
 public:
